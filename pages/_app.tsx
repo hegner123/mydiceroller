@@ -1,14 +1,23 @@
 import "mydiceroller/styles/globals.css";
-import type { AppProps } from "next/app";
+import { DevTools, useAtomsDebugValue } from "jotai-devtools";
+import { Provider, createStore } from "jotai";
+import { AppProps } from "next/app";
 
-import JotaiProvider from "../store/atoms";
+const appStore = createStore();
+
+const DebugAtoms = () => {
+  useAtomsDebugValue();
+  return null;
+};
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <JotaiProvider>
+      <Provider store={appStore}>
+        <DevTools store={appStore} />
+        <DebugAtoms />
         <Component {...pageProps} />
-      </JotaiProvider>
+      </Provider>
     </>
   );
 }

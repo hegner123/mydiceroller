@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useAtom } from "jotai";
+import { rollModifier } from "mydiceroller/store/atoms";
 
 const Modifier = ({
   id,
@@ -9,7 +11,7 @@ const Modifier = ({
   label: string;
   col: string;
 }) => {
-  const [rollModifier, setRollModifier] = useState("0");
+  const [modifier, setModifier] = useAtom(rollModifier);
   return (
     <>
       <div className={`col-start-${col}`}>
@@ -18,7 +20,8 @@ const Modifier = ({
         </label>
         <input
           type="text"
-          onChange={(e) => setRollModifier(e.target.value)}
+          value={modifier}
+          onChange={(e) => setModifier(e.target.value)}
           className="p-5 text-black col-span-full"
         />
       </div>

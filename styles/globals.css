@@ -70,3 +70,8 @@ body {
 .col-start-12 {
   grid-column-start: 12;
 }
+.spell-list {
+  height: 500px;
+  overflow: scroll;
+
+}
