@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import PropType from "prop-types";
-import { useAtom } from "jotai";
+import { useAtom, atom } from "jotai";
 
 const Selector = ({
   id,
@@ -12,6 +12,8 @@ const Selector = ({
   col: string;
 }) => {
   const [selected, setSelected] = useState("");
+  const valueAtom = useMemo(() => atom(selected), [selected]);
+
   const max = 20;
   return (
     <div className={`grid max-w-xs col-start-${col}`}>

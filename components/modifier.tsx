@@ -17,7 +17,7 @@ const Modifier = ({
           {label}
         </label>
         <input
-          type="number"
+          type="text"
           onChange={(e) => setRollModifier(e.target.value)}
           className="p-5 text-black col-span-full"
         />

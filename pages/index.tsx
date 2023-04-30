@@ -7,6 +7,7 @@ import Operation from "mydiceroller/components/operation";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
   return (
     <>
       <main className="p-10 grid grid-cols-12">
